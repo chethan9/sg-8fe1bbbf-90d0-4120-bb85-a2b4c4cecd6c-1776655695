@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
 import { BrandingProvider } from "@/contexts/BrandingProvider";
 import { AuthProvider, useAuth } from "@/contexts/AuthProvider";
@@ -65,6 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Providers>
           <Component {...pageProps} />
           <Toaster />
+          <SpeedInsights />
         </Providers>
       </QueryClientProvider>
     );
@@ -82,6 +84,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Providers>
         <Component {...pageProps} />
         <Toaster />
+        <SpeedInsights />
       </Providers>
     </PersistQueryClientProvider>
   );
